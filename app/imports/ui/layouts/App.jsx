@@ -8,10 +8,12 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListContacts from '../pages/ListContacts';
+import ListProducts from '../pages/ListProducts';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddContact from '../pages/AddContact';
 import AddProduct from '../pages/AddProduct';
 import EditContact from '../pages/EditContact';
+import EditProduct from '../pages/EditProduct';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -32,7 +34,9 @@ class App extends React.Component {
             <ProtectedRoute path="/list" component={ListContacts}/>
             <ProtectedRoute path="/add" component={AddContact}/>
             <ProtectedRoute path="/addp" component={AddProduct}/>
+            <ProtectedRoute path="/listp" component={ListProducts}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
+            <ProtectedRoute path="/editp/:_id" component={EditProduct}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
           </Switch>
