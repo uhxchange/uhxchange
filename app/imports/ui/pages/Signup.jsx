@@ -60,7 +60,7 @@ class Signup extends React.Component {
                 <Form.Input
                   label="Address"
                   id="signup-form-address"
-                  icon="user"
+                  icon="home"
                   iconPosition="left"
                   name="address"
                   type="address"
@@ -70,17 +70,17 @@ class Signup extends React.Component {
                 <Form.Input
                   label="Image"
                   id="signup-form-image"
-                  icon="user"
+                  icon="image"
                   iconPosition="left"
                   name="Image"
-                  type="Image"
+                  type="link"
                   placeholder="Image"
                   onChange={this.handleChange}
                 />
                 <Form.Input
                   label="Phone Number"
                   id="signup-form-phoneNum"
-                  icon="user"
+                  icon="phone"
                   iconPosition="left"
                   name="phoneNum"
                   type="phoneNum"
@@ -90,7 +90,7 @@ class Signup extends React.Component {
                 <Form.Input
                   label="Email"
                   id="signup-form-email"
-                  icon="user"
+                  icon="mail"
                   iconPosition="left"
                   name="email"
                   type="email"
@@ -113,9 +113,7 @@ class Signup extends React.Component {
             <Message>
               Already have an account? Login <Link to="/signin">here</Link>
             </Message>
-            {this.state.error === '' ? (
-              ''
-            ) : (
+            {this.state.error === '' ? ('') : (
               <Message
                 error
                 header="Registration was not successful"
