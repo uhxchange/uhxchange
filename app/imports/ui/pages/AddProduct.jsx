@@ -11,7 +11,6 @@ import { Contacts } from '../../api/contact/Contacts';
 const formSchema = new SimpleSchema({
   productName: String,
   productType: String,
-  emailAddress: String,
   productImage: String,
   description: String,
 });
@@ -23,9 +22,9 @@ class AddProduct extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { productName, productType, emailAddress, productImage, description } = data;
+    const { productName, productType, productImage, description } = data;
     const owner = Meteor.user().username;
-    Contacts.collection.insert({ productName, productType, emailAddress, productImage, description, owner },
+    Contacts.collection.insert({ productName, productType, productImage, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -47,7 +46,6 @@ class AddProduct extends React.Component {
             <Segment>
               <TextField name='productName'/>
               <TextField name='productType'/>
-              <TextField name='emailAddress'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
