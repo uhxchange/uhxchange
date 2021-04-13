@@ -1,7 +1,8 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin", "firstName": "Admin", "lastName": "Foo", "address": "1234 Nowhere Avenue", "phoneNum": "8081234567"
+    },
+    { "email": "john@foo.com", "password": "changeme", "firstName": "John", "lastName": "Foo", "address": "1234 Nowhere Avenue", "phoneNum": "8081234568" }
   ],
 
   "defaultData": [
