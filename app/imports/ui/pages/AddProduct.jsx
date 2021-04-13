@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Contacts } from '../../api/contact/Contacts';
+import { Products } from '../../api/product/Products';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -24,7 +24,7 @@ class AddProduct extends React.Component {
   submit(data, formRef) {
     const { productName, productType, productImage, description } = data;
     const owner = Meteor.user().username;
-    Contacts.collection.insert({ productName, productType, productImage, description, owner },
+    Products.collection.insert({ productName, productType, productImage, description, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -41,7 +41,7 @@ class AddProduct extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Add Contact</Header>
+            <Header as="h2" textAlign="center" inverted>Add Product</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='productName'/>
