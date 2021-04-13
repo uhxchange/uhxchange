@@ -11,8 +11,8 @@ function addData(data) {
 }
 
 function addContact(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
+  console.log(`  Adding: ${data.lastName} (${data.owner})`);
+  Contacts.collection.insert(data);
 }
 
 // Initialize the StuffsCollection if empty.
@@ -26,6 +26,6 @@ if (Stuffs.collection.find().count() === 0) {
 if (Contacts.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addContact(data));
+    Meteor.settings.defaultContacts.map(data => addContact(data));
   }
 }
