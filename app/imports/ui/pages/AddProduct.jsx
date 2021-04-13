@@ -9,8 +9,8 @@ import { Contacts } from '../../api/contact/Contacts';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  firstName: String,
-  lastName: String,
+  productName: String,
+  productType: String,
   emailAddress: String,
   productImage: String,
   description: String,
@@ -23,9 +23,9 @@ class AddProduct extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { firstName, lastName, emailAddress, productImage, description } = data;
+    const { productName, productType, emailAddress, productImage, description } = data;
     const owner = Meteor.user().username;
-    Contacts.collection.insert({ firstName, lastName, emailAddress, productImage, description, owner },
+    Contacts.collection.insert({ productName, productType, emailAddress, productImage, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,8 +45,8 @@ class AddProduct extends React.Component {
           <Header as="h2" textAlign="center" inverted>Add Contact</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='firstName'/>
-              <TextField name='lastName'/>
+              <TextField name='productName'/>
+              <TextField name='productType'/>
               <TextField name='emailAddress'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
