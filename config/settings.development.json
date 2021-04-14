@@ -31,7 +31,7 @@
 
   "defaultProducts": [
     {
-      "productName": "product", "productType": "type" , "productImage": "https://", "owner": "joo@foo.com" , "description": "product description "
+      "productName": "product", "productType": "type" , "productImage": "https://", "owner": "john@foo.com" , "description": "product description "
     }
   ]
 
