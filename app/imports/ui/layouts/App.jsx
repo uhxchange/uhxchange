@@ -15,6 +15,7 @@ import AddProduct from '../pages/AddProduct';
 import EditContact from '../pages/EditContact';
 import EditProduct from '../pages/EditProduct';
 import NotFound from '../pages/NotFound';
+import ProductTypes from '../pages/ProductTypes';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
@@ -35,6 +36,7 @@ class App extends React.Component {
             <ProtectedRoute path="/add" component={AddContact}/>
             <ProtectedRoute path="/addp" component={AddProduct}/>
             <ProtectedRoute path="/listp" component={ListProducts}/>
+            <ProtectedRoute path="/type" component={ProductTypes}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
             <ProtectedRoute path="/editp/:_id" component={EditProduct}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>

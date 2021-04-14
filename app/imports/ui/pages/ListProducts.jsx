@@ -17,12 +17,12 @@ class ListProducts extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center" inverted>List Products</Header>
-          <Card.Group>
-            {this.props.products.map((product, index) => <Product key={index} product={product} />)}
-          </Card.Group>
-        </Container>
+      <Container>
+        <Header as="h2" textAlign="center" inverted>List Products</Header>
+        <Card.Group>
+          {this.props.products.map((product, index) => <Product key={index} product={product} />)}
+        </Card.Group>
+      </Container>
     );
   }
 }
