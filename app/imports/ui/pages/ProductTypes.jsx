@@ -6,14 +6,6 @@ import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Contacts } from '../../api/contact/Contacts';
 import { Products } from '../../api/product/Products';
-import { ProductsTypes } from '../../api/product/ProductsTypes';
-
-/** Gets the Project data as well as Profiles and Interests associated with the passed Project name. */
-function getProductData(name) {
-  const types = _.pluck(ProductsTypes.collection.find({ productType: name }).fetch(), 'product');
-  // const products = types.map(type => Products.collection.findOne({ owner: type }).image);
-  return _.extend({ }, { name, types });
-}
 
 /** Component for layout out a Project Card. */
 const MakeCard = (props) => (
@@ -41,12 +33,10 @@ class ProductsPage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const products = _.pluck(ProductsTypes.collection.find().fetch(), 'product');
-    const productData = products.map(product => getProductData(product));
+    const types = _.pluck(Products.collection.find().fetch(), 'productType');
     return (
       <Container>
         <Card.Group>
-          {_.map(productData, (product, index) => <MakeCard key={index} product={product}/>)}
         </Card.Group>
       </Container>
     );
@@ -62,8 +52,7 @@ export default withTracker(() => {
   // Ensure that minimongo is populated with all collections prior to running render().
   const sub1 = Meteor.subscribe(Contacts.userPublicationName);
   const sub2 = Meteor.subscribe(Products.userPublicationName);
-  const sub3 = Meteor.subscribe(ProductsTypes.userPublicationName);
   return {
-    ready: sub1.ready() && sub2.ready() && sub3.ready(),
+    ready: sub1.ready() && sub2.ready(),
   };
 })(ProductsPage);

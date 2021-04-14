@@ -17,12 +17,12 @@ class ListContacts extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center" inverted>List Contacts</Header>
-          <Card.Group>
-            {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
-          </Card.Group>
-        </Container>
+      <Container>
+        <Header as="h2" textAlign="center" inverted>List Contacts</Header>
+        <Card.Group>
+          {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
+        </Card.Group>
+      </Container>
     );
   }
 }

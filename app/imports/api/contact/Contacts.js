@@ -14,11 +14,9 @@ class ContactsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       email: String,
-      firstName: String,
-      lastName: String,
+      name: String,
       address: String,
       image: String,
-      description: String,
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

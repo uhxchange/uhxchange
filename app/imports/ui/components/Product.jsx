@@ -10,7 +10,7 @@ class Product extends React.Component {
       <Card centered>
         <Card.Content>
           <Image src={this.props.product.productImage}/>
-          <Card.Header>{this.props.product.productName} {this.props.product.productType}</Card.Header>
+          <Card.Header>{this.props.product.productName}</Card.Header>
           <Card.Description>
             {this.props.product.description}
           </Card.Description>
