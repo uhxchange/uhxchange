@@ -27,6 +27,9 @@
     {
       "productName": "iMac", "productType": "laptop" , "productImage": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-21-retina-selection-hero-201903?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1553120924619", "owner": "john@foo.com" , "description": "3.6GHz Quad-Core Processor 256GB Storage Retina 4K Display"
     }
-  ]
-
+    
+   "monti": {
+    "appId": "PEet2gEb22aQbyeAn",
+    "appSecret": "5aac7fda-2d6e-4aff-9142-d9aa46c4e33d"
+    }
 }
