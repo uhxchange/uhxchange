@@ -12,7 +12,7 @@ function addData(data) {
 }
 
 function addContact(data) {
-  console.log(`  Adding: ${data.lastName} (${data.owner})`);
+  console.log(`  Adding: ${data.name} (${data.owner})`);
   Contacts.collection.insert(data);
 }
 
