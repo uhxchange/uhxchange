@@ -33,7 +33,7 @@ class ProductsPage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const types = _.pluck(Products.collection.find().fetch(), 'productType');
+    // const types = _.pluck(Products.collection.find().fetch(), 'productType');
     return (
       <Container>
         <Card.Group>
