@@ -24,8 +24,8 @@ class EditProduct extends React.Component {
   submit(data) {
     const { productName, productType, productImage, description, _id } = data;
     Products.collection.update(_id, { $set: { productName, productType, productImage, description } }, (error) => (error ?
-        swal('Error', error.message, 'error') :
-        swal('Success', 'Item updated successfully', 'success')));
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -36,22 +36,22 @@ class EditProduct extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Edit Product</Header>
-            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
-              <Segment>
-                <TextField name='productName'/>
-                <TextField name='productType'/>
-                <TextField name='productImage'/>
-                <LongTextField name='description'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+      <Grid container centered>
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Product</Header>
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
+            <Segment>
+              <TextField name='productName'/>
+              <TextField name='productType'/>
+              <TextField name='productImage'/>
+              <LongTextField name='description'/>
+              <SubmitField value='Submit'/>
+              <ErrorsField/>
+              <HiddenField name='owner' />
+            </Segment>
+          </AutoForm>
+        </Grid.Column>
+      </Grid>
     );
   }
 }

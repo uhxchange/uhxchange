@@ -18,7 +18,7 @@ class ListProducts extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center" inverted>List Products</Header>
+        <Header as="h2" textAlign="center">List Products</Header>
         <Card.Group>
           {this.props.products.map((product, index) => <Product key={index} product={product} />)}
         </Card.Group>
