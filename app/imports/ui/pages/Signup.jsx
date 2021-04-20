@@ -22,7 +22,7 @@ class Signup extends React.Component {
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
     const { email, password, name, address, image, phoneNumber } = this.state;
-    Accounts.createUser({ email, username: email, password, profile: { name, address, image, phoneNumber } }, (err) => {
+    Accounts.createUser({ email, username: email, password, profile: { name, address, image, phoneNumber, owner: email } }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
