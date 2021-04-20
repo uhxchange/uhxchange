@@ -1,7 +1,9 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Card, Image, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Product extends React.Component {
@@ -15,12 +17,16 @@ class Product extends React.Component {
             {this.props.product.description}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
+        <Card.Content>
           <a>
             <Icon name='user' />
             {this.props.product.owner}
           </a>
         </Card.Content>
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          <Card.Content extra>
+            <Link to={`/editp/${this.props.product._id}`}>Edit</Link>
+          </Card.Content>) : ''}
       </Card>
     );
   }

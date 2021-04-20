@@ -5,7 +5,6 @@ import {
   AutoForm,
   ErrorsField,
   HiddenField,
-  LongTextField,
   SubmitField,
   TextField,
 } from 'uniforms-semantic';
@@ -22,10 +21,10 @@ class EditContact extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, address, image, description, _id } = data;
-    Contacts.collection.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => (error ?
-        swal('Error', error.message, 'error') :
-        swal('Success', 'Item updated successfully', 'success')));
+    const { email, name, address, image, _id } = data;
+    Contacts.collection.update(_id, { $set: { email, name, address, image } }, (error) => (error ?
+      swal('Error', error.message, 'error') :
+      swal('Success', 'Item updated successfully', 'success')));
   }
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -36,23 +35,22 @@ class EditContact extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Edit Contact</Header>
-            <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
-              <Segment>
-                <TextField name='firstName'/>
-                <TextField name='lastName'/>
-                <TextField name='address'/>
-                <TextField name='image'/>
-                <LongTextField name='description'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+      <Grid container centered>
+        <Grid.Column>
+          <Header as="h2" textAlign="center">Edit Contact</Header>
+          <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
+            <Segment>
+              <TextField name='email'/>
+              <TextField name='name'/>
+              <TextField name='address'/>
+              <TextField name='image'/>
+              <SubmitField value='Submit'/>
+              <ErrorsField/>
+              <HiddenField name='owner' />
+            </Segment>
+          </AutoForm>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
@@ -70,12 +68,15 @@ export default withTracker(({ match }) => {
   const documentId = match.params._id;
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Contacts.userPublicationName);
+  const subscription2 = Meteor.subscribe(Contacts.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const ready2 = subscription2.ready();
   // Get the document
   const doc = Contacts.collection.findOne(documentId);
   return {
     doc,
     ready,
+    ready2,
   };
 })(EditContact);

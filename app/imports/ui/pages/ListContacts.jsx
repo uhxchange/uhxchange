@@ -18,7 +18,7 @@ class ListContacts extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center" inverted>List Contacts</Header>
+        <Header as="h2" textAlign="center">List Contacts</Header>
         <Card.Group>
           {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
         </Card.Group>
@@ -37,12 +37,15 @@ ListContacts.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Contacts.userPublicationName);
+  const subscription2 = Meteor.subscribe(Contacts.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const ready2 = subscription2.ready();
   // Get the Stuff documents
   const contacts = Contacts.collection.find({}).fetch();
   return {
     contacts,
     ready,
+    ready2,
   };
 })(ListContacts);
