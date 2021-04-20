@@ -24,8 +24,8 @@ Meteor.publish(Contacts.userPublicationName, function () {
 
 Meteor.publish(Products.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Products.collection.find({ owner: username });
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Products.collection.find();
   }
   return this.ready();
 });
