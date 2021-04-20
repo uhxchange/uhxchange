@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import swal from 'sweetalert';
+import { Contacts } from '../../api/contact/Contacts';
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -22,13 +24,21 @@ class Signup extends React.Component {
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
     const { email, password, name, address, image, phoneNumber } = this.state;
-    Accounts.createUser({ email, username: email, password, profile: { name, address, image, phoneNumber } }, (err) => {
+    Accounts.createUser({ email, username: email, password, profile: { name, address, image, phoneNumber, owner: email } }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
         this.setState({ error: '', redirectToReferer: true });
       }
     });
+    Contacts.collection.insert({ email, name, address, image, owner: email },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Item added successfully', 'success');
+        }
+      });
   }
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
