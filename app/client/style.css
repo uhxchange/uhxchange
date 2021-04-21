@@ -1,0 +1,14 @@
+html, body {
+  height: 100%;
+}
+
+.landing-background {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background: url("https://www.khon2.com/wp-content/uploads/sites/8/2020/10/10-11-uh.jpg?w=1280") no-repeat fixed center center;
+}
+
+.landing-background-page {
+  background: rgba(100, 100, 100, 0.5);
+}
