@@ -20,10 +20,10 @@ class Landing extends React.Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width={2}>
-              <Button as={NavLink} exact to="/signin">Sign In</Button>
+              <Button as={NavLink} exact to="/signin" color='olive'>Sign In</Button>
             </Grid.Column>
             <Grid.Column width={2}>
-              <Button as={NavLink} exact to="/signup">Sign Up</Button>
+              <Button as={NavLink} exact to="/signup" color='olive'>Sign Up</Button>
             </Grid.Column>
           </Grid.Row>
         </Grid>
