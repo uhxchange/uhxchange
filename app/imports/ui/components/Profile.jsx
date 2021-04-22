@@ -22,8 +22,8 @@ class Profile extends React.Component {
               </Item.Content>
             </Item>
           </Item.Group>
-
-                <Link to={`/edit/${this.props.user._id}`}>Edit</Link>
+          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                <Link to={`/edit/${this.props.user._id}`}>Edit</Link>): ''}
         </Grid.Column>
     );
   }
