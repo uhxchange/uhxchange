@@ -15,17 +15,22 @@ class ProductPage extends React.Component {
 
   renderPage() {
     return (
-      <Card centered>
-        <Card.Content>
-          <Image src={this.props.doc.productImage}/>
-          <Card.Header>{this.props.doc.productName}</Card.Header>
-          <Card.Description>
-            {this.props.doc.description}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content>
-        </Card.Content>
-      </Card>
+      <Container>
+        <Card>
+          {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
+        </Card>
+        <Card centered>
+          <Card.Content>
+            <Image src={this.props.doc.productImage}/>
+            <Card.Header>{this.props.doc.productName}</Card.Header>
+            <Card.Description>
+              {this.props.doc.description}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content>
+          </Card.Content>
+        </Card>
+      </Container>
     );
   }
 }
@@ -33,7 +38,7 @@ class ProductPage extends React.Component {
 ProductPage.propTypes = {
   doc: PropTypes.object,
   model: PropTypes.object,
-  // contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -42,14 +47,14 @@ export default withTracker(({ match }) => {
   const subscription = Meteor.subscribe(Products.userPublicationName);
   const ready = subscription.ready();
   const doc = Products.collection.findOne(documentId);
-  // const subscription2 = Meteor.subscribe(Contacts.userPublicationName);
-  // const ready2 = subscription2.ready();
-  // const username = match.params.owner;
-  // const contacts = Contacts.collection.find({ owner: username }).fetch();
+  const subscription2 = Meteor.subscribe(Contacts.userPublicationName);
+  const ready2 = subscription2.ready();
+  const username = this.props.doc.owner;
+  const contacts = Contacts.collection.find({ owner: username }).fetch();
   return {
     doc,
-    // contacts,
+    contacts,
     ready,
-    // ready2,
+    ready2,
   };
 })(ProductPage);
