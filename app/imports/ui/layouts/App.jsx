@@ -18,6 +18,7 @@ import ProductTypes from '../pages/ProductTypes';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import ProductPage from '../pages/ProductPage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListContacts}/>
             <ProtectedRoute path="/addp" component={AddProduct}/>
+            <ProtectedRoute path="/:_id" component={ProductPage}/>
             <ProtectedRoute path="/listp" component={ListProducts}/>
             <ProtectedRoute path="/type" component={ProductTypes}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
