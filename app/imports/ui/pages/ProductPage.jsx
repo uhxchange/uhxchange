@@ -2,9 +2,10 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Card, Container, Loader } from 'semantic-ui-react';
+import { Card, Container, Image, Loader } from 'semantic-ui-react';
 import { Contacts } from '../../api/contact/Contacts';
 import Contact from '../components/Contact';
+import { Products } from '../../api/product/Products';
 
 class ProductPage extends React.Component {
 
@@ -14,27 +15,41 @@ class ProductPage extends React.Component {
 
   renderPage() {
     return (
-      <Container>
-        <Card>
-          {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
-        </Card>
-      </Container>
+      <Card centered>
+        <Card.Content>
+          <Image src={this.props.doc.productImage}/>
+          <Card.Header>{this.props.doc.productName}</Card.Header>
+          <Card.Description>
+            {this.props.doc.description}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content>
+        </Card.Content>
+      </Card>
     );
   }
 }
 
 ProductPage.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  doc: PropTypes.object,
+  model: PropTypes.object,
+  // contacts: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
-export default withTracker(() => {
-  const subscription = Meteor.subscribe(Contacts.userPublicationName);
+export default withTracker(({ match }) => {
+  const documentId = match.params._id;
+  const subscription = Meteor.subscribe(Products.userPublicationName);
   const ready = subscription.ready();
-  const username = Meteor.users.findOne(this.userId).username;
-  const contacts = Contacts.collection.find({ owner: username }).fetch();
+  const doc = Products.collection.findOne(documentId);
+  // const subscription2 = Meteor.subscribe(Contacts.userPublicationName);
+  // const ready2 = subscription2.ready();
+  // const username = match.params.owner;
+  // const contacts = Contacts.collection.find({ owner: username }).fetch();
   return {
-    contacts,
+    doc,
+    // contacts,
     ready,
+    // ready2,
   };
 })(ProductPage);
