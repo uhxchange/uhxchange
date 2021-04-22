@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Users } from '../../api/user/Users';
 
-const bridge = new SimpleSchema2Bridge(Contacts.schema);
+const bridge = new SimpleSchema2Bridge(Users.schema);
 
 /** Renders the Page for editing a single document. */
 class EditContact extends React.Component {
