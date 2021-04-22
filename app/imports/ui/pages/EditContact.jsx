@@ -12,7 +12,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Contacts } from '../../api/contact/Contacts';
+import { Users } from '../../api/user/Users';
 
 const bridge = new SimpleSchema2Bridge(Contacts.schema);
 
