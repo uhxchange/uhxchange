@@ -13,6 +13,7 @@ import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddProduct from '../pages/AddProduct';
 import EditContact from '../pages/EditContact';
 import EditProduct from '../pages/EditProduct';
+import ProfilePage from '../pages/ProfilePage';
 import NotFound from '../pages/NotFound';
 import ProductTypes from '../pages/ProductTypes';
 import Signin from '../pages/Signin';
@@ -35,6 +36,7 @@ class App extends React.Component {
             <ProtectedRoute path="/addp" component={AddProduct}/>
             <ProtectedRoute path="/listp" component={ListProducts}/>
             <ProtectedRoute path="/type" component={ProductTypes}/>
+            <ProtectedRoute path="/profile" component={ProfilePage}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
             <ProtectedRoute path="/editp/:_id" component={EditProduct}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
