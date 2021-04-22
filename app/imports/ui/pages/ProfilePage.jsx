@@ -4,7 +4,7 @@ import { Container, Header, Loader, Item } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Profile from '../components/Profile';
-import { Contacts } from '../../api/contact/Contacts';
+import { Users } from '../../api/user/Users';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ProfilePage extends React.Component {
@@ -20,7 +20,7 @@ class ProfilePage extends React.Component {
     return (
         <Container>
           <Header as="h2" textAlign="center">Profile</Header>
-          {this.props.contacts.map((contact, index) => <Profile key={index} contact={contact} />)}
+          {this.props.users.map((user, index) => <Profile key={index} user={user} />)}
         </Container>
     );
   }
@@ -28,22 +28,22 @@ class ProfilePage extends React.Component {
 
 // Require an array of Stuff documents in the props.
 ProfilePage.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Contacts.userPublicationName);
+  const subscription = Meteor.subscribe(Users.userPublicationName);
   //const subscription2 = Meteor.subscribe(Contacts.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   //const ready2 = subscription2.ready();
   // Get the Stuff documents
-  const contacts = Contacts.collection.find({}).fetch();
+  const users = Users.collection.find({}).fetch();
   return {
-    contacts,
+    users,
     ready,
     //ready2,
   };

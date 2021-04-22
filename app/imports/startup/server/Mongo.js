@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Contacts } from '../../api/contact/Contacts';
 import { Products } from '../../api/product/Products';
+import { Users } from '../../api/user/Users';
 
 /* eslint-disable no-console */
 
@@ -19,6 +20,11 @@ function addContact(data) {
 function addProduct(data) {
   console.log(`  Adding: ${data.productName} (${data.owner})`);
   Products.collection.insert(data);
+}
+
+function addUser(data) {
+  console.log(`  Adding: ${data.name} (${data.owner})`);
+  Users.collection.insert(data);
 }
 
 // Initialize the StuffsCollection if empty.
@@ -40,5 +46,12 @@ if (Products.collection.find().count() === 0) {
   if (Meteor.settings.defaultProducts) {
     console.log('Creating default product.');
     Meteor.settings.defaultProducts.map(data => addProduct(data));
+  }
+}
+
+if (Users.collection.find().count() === 0) {
+  if (Meteor.settings.defaultUsers) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultUsers.map(data => addUser(data));
   }
 }
