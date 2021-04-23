@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { _ } from 'meteor/underscore';
 import { Card, Container, Image, Loader } from 'semantic-ui-react';
 import { Contacts } from '../../api/contact/Contacts';
 import Contact from '../components/Contact';
@@ -16,20 +17,20 @@ class ProductPage extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Card>
+        <Card.Group>
           {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
-        </Card>
-        <Card centered>
-          <Card.Content>
-            <Image src={this.props.doc.productImage}/>
-            <Card.Header>{this.props.doc.productName}</Card.Header>
-            <Card.Description>
-              {this.props.doc.description}
-            </Card.Description>
-          </Card.Content>
-          <Card.Content>
-          </Card.Content>
-        </Card>
+          <Card>
+            <Card.Content>
+              <Image src={this.props.doc.productImage}/>
+              <Card.Header>{this.props.doc.productName}</Card.Header>
+              <Card.Description>
+                {this.props.doc.description}
+              </Card.Description>
+            </Card.Content>
+            <Card.Content>
+            </Card.Content>
+          </Card>
+        </Card.Group>
       </Container>
     );
   }
@@ -49,8 +50,9 @@ export default withTracker(({ match }) => {
   const doc = Products.collection.findOne(documentId);
   const subscription2 = Meteor.subscribe(Contacts.userPublicationName);
   const ready2 = subscription2.ready();
-  const username = this.props.doc.owner;
+  const username = _.first(_.pluck(Products.collection.find(documentId).fetch(), 'owner'));
   const contacts = Contacts.collection.find({ owner: username }).fetch();
+  console.log(contacts);
   return {
     doc,
     contacts,
