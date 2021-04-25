@@ -52,7 +52,6 @@ export default withTracker(({ match }) => {
   const ready2 = subscription2.ready();
   const username = _.first(_.pluck(Products.collection.find(documentId).fetch(), 'owner'));
   const contacts = Contacts.collection.find({ owner: username }).fetch();
-  console.log(contacts);
   return {
     doc,
     contacts,
