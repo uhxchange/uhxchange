@@ -27,7 +27,7 @@ class AddReview extends React.Component {
 
   render() {
     let fRef = null;
-    const userName = Meteor.user().name;
+    const userName = Meteor.user().username;
     return (
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
         <Segment>
