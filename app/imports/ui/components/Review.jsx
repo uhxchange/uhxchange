@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feed, Header } from 'semantic-ui-react';
+import { Feed, Header, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -7,13 +7,15 @@ import { withRouter } from 'react-router-dom';
 class Review extends React.Component {
   render() {
     return (
-      <Feed.Content>
-        <Feed.Date content={this.props.review.createdAt.toLocaleDateString('en-US')} />
-        <Feed.Summary>
-          <Header as='h5'>{this.props.review.userName}</Header>
-          {this.props.review.userReview}
-        </Feed.Summary>
-      </Feed.Content>
+      <Segment>
+        <Feed.Content>
+          <Feed.Date content={this.props.review.createdAt.toLocaleDateString('en-US')} />
+          <Feed.Summary>
+            <Header as='h5'>{this.props.review.userName}</Header>
+            {this.props.review.userReview}
+          </Feed.Summary>
+        </Feed.Content>
+      </Segment>
     );
   }
 }

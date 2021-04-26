@@ -4,7 +4,6 @@ import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'unif
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import PropTypes from 'prop-types';
 import { Reviews } from '../../api/review/Reviews';
 
 const bridge = new SimpleSchema2Bridge(Reviews.schema);
@@ -28,24 +27,20 @@ class AddReview extends React.Component {
 
   render() {
     let fRef = null;
+    const userName = Meteor.user().name;
     return (
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
         <Segment>
           <TextField label="Add a review!" name='userReview'/>
           <SubmitField value='Submit'/>
           <ErrorsField/>
-          <HiddenField name='userName' value={this.props.userName}/>
+          <HiddenField name='userName' value={userName}/>
           <HiddenField name='createdAt' value={new Date()}/>
         </Segment>
       </AutoForm>
     );
   }
 }
-
-// Require a document to be passed to this component.
-AddReview.propTypes = {
-  userName: PropTypes.string.isRequired,
-};
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
 export default AddReview;
