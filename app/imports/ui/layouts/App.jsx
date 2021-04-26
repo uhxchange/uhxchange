@@ -12,6 +12,7 @@ import ListContacts from '../pages/ListContacts';
 import ListProducts from '../pages/ListProducts';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddProduct from '../pages/AddProduct';
+import UserReview from '../pages/UserReview';
 import EditContact from '../pages/EditContact';
 import EditProduct from '../pages/EditProduct';
 import NotFound from '../pages/NotFound';
@@ -39,6 +40,7 @@ class App extends React.Component {
             <ProtectedRoute path="/type" component={ProductTypes}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
             <ProtectedRoute path="/editp/:_id" component={EditProduct}/>
+            <ProtectedRoute path="/review" component={UserReview}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
           </Switch>
