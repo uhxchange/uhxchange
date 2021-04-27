@@ -1,6 +1,6 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -31,7 +31,7 @@ class AddReview extends React.Component {
     return (
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
         <Segment>
-          <TextField label="Add a review!" name='userReview'/>
+          <LongTextField label="Add a review!" name='userReview'/>
           <SubmitField value='Submit'/>
           <ErrorsField/>
           <HiddenField name='userName' value={userName}/>
