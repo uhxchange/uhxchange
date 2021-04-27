@@ -1,20 +1,19 @@
 import _ from 'lodash';
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Search, Grid, Container, Loader, Card, Header } from 'semantic-ui-react';
+import { Search, Grid, Header, Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import Product from '../components/Product';
 import { Products } from '../../api/product/Products';
 import ProductResult from '../components/ProductResult';
+import Product from '../components/Product';
 
 const initialState = {
   results: [],
   value: '',
 };
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListProducts extends React.Component {
+class SearchProduct extends React.Component {
 
   constructor(props) {
     super(props);
@@ -35,7 +34,7 @@ class ListProducts extends React.Component {
 
     this.setState({
       loading: false,
-      results: _.filter(this.props.products, isMatch),
+      results: _.filter(this.props.product, isMatch),
     });
   }
 
@@ -46,7 +45,7 @@ class ListProducts extends React.Component {
 
     this.setState({
       loading: false,
-      results: _.filter(this.props.products, isMatch),
+      results: _.filter(this.props.product, isMatch),
     });
   }
 
@@ -54,13 +53,13 @@ class ListProducts extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  // Render the page once subscriptions have been received.
   renderPage() {
     const { loading, results, value } = this.state;
+
     return (
       <Grid container>
         <Grid.Column centered>
-          <Search placeholder="Find your favorite items" id='searchbar'
+          <Search
             loading={loading}
             onResultSelect={this.onResultSelect}
             onSearchChange={this.handleSearchChange}
@@ -68,11 +67,10 @@ class ListProducts extends React.Component {
             results={results}
             value={value}
           />
+
           <Container id='results'>
+            <Header inverted>Results</Header>
             <Card.Group centered>{results.map((product) => <Product key={product._id} product={product}/>)}</Card.Group>
-            <Card.Group>
-              {this.props.products.map((product, index) => <Product key={index} product={product} />)}
-            </Card.Group>
           </Container>
         </Grid.Column>
       </Grid>
@@ -80,22 +78,20 @@ class ListProducts extends React.Component {
   }
 }
 
-// Require an array of Stuff documents in the props.
-ListProducts.propTypes = {
-  products: PropTypes.array.isRequired,
+SearchProduct.propTypes = {
+  product: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
-// withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Product collection.
   const subscription = Meteor.subscribe(Products.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Stuff documents
-  const products = Products.collection.find({}).fetch();
+  // Get the Product collection
+  const product = Products.collection.find({}).fetch();
   return {
-    products,
+    product,
     ready,
   };
-})(ListProducts);
+})(SearchProduct);
