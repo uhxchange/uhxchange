@@ -10,3 +10,7 @@ html, body {
 .landing-background-page {
   padding: 10% 10% 10% 10%;
 }
+
+#results {
+  padding-top: 5%;
+}

@@ -14,7 +14,6 @@ class ProductsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       productName: String,
-      productType: String,
       productImage: String,
       description: String,
       owner: String,

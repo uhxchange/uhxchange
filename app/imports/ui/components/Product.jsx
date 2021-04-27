@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Image, Icon, Header, Button } from 'semantic-ui-react';
+import { Card, Image, Icon, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
@@ -13,15 +13,7 @@ class Product extends React.Component {
         <Card.Content>
           <Image src={this.props.product.productImage}/>
           <Card.Header>{this.props.product.productName}</Card.Header>
-          <Card.Description>
-            {this.props.product.description}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content>
-          <Header as='h6'>
-            Type
-          </Header>
-          <Button disabled>{this.props.product.productType}</Button>
+          <Card.Description>{this.props.product.description}</Card.Description>
         </Card.Content>
         <Card.Content>
           <a>
