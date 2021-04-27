@@ -39,6 +39,7 @@ class MyProfile extends React.Component {
         <Header as="h2" textAlign="center">My Profile</Header>
         <Container>
           {info1.map((info) => <Profile key={info._id} info={info} Contacts={Contacts}/>)}
+          <Header as="h2" textAlign="center">My Products</Header>
           <Card.Group>
             {pro1.map((product, index) => <Product key={index} product={product} />)}
           </Card.Group>
