@@ -70,9 +70,7 @@ class SearchProduct extends React.Component {
 
           <Container id='results'>
             <Header inverted>Results</Header>
-              <Card.Group centered>
-                {results.map((product) => <Product key={product._id} product={product}/>)};
-              </Card.Group>
+            <Card.Group centered>{results.map((product) => <Product key={product._id} product={product}/>)}</Card.Group>
           </Container>
         </Grid.Column>
       </Grid>
