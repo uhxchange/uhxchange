@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { Card, Container, Image, Loader } from 'semantic-ui-react';
+import { Card, Container, Header, Image, Loader } from 'semantic-ui-react';
 import { Contacts } from '../../api/contact/Contacts';
 import Contact from '../components/Contact';
 import { Products } from '../../api/product/Products';
@@ -17,6 +17,7 @@ class ProductPage extends React.Component {
   renderPage() {
     return (
       <Container>
+        <Header as="h2">Product Owner</Header>
         <Card.Group>
           {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
           <Card>
