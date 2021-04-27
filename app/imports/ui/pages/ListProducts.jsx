@@ -10,6 +10,7 @@ import ProductResult from '../components/ProductResult';
 
 const initialState = {
   results: [],
+  value: '',
 };
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
