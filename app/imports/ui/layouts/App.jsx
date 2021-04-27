@@ -19,7 +19,6 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import SearchProduct from '../pages/SearchProduct';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -40,7 +39,6 @@ class App extends React.Component {
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
             <ProtectedRoute path="/editp/:_id" component={EditProduct}/>
             <ProtectedRoute path="/review" component={UserReview}/>
-            <ProtectedRoute path="/search" component={SearchProduct}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <Route component={NotFound}/>
           </Switch>

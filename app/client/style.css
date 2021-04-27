@@ -12,5 +12,11 @@ html, body {
 }
 
 #results {
-  padding-top: 5%;
+  padding-top: 30px;
+  padding-bottom: 10%;
+}
+
+#searchbar {
+  margin-left: 15%;
+  width: 250px;
 }

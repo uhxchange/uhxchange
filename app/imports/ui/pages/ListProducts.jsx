@@ -1,28 +1,80 @@
+import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Search, Grid, Container, Loader, Card, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Product from '../components/Product';
 import { Products } from '../../api/product/Products';
+import ProductResult from '../components/ProductResult';
+
+const initialState = {
+  results: [],
+};
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListProducts extends React.Component {
 
-  // If the subscription(s) have been received, render the page, otherwise show a loading icon.
+  constructor(props) {
+    super(props);
+    this.state = { results: [], value: '' };
+  }
+
+  resultRenderer = ({ productName, productImage, description, owner }) => <ProductResult productName={productName} productImage={productImage} description={description} owner={owner}/>
+
+  handleSearchChange = (e, data) => {
+    this.setState({ loading: true, value: data.value });
+    if (data.value.length === 0) {
+      this.setState(initialState);
+      return;
+    }
+
+    const re = new RegExp(_.escapeRegExp(data.value), 'i');
+    const isMatch = (result) => re.test(result.productName) || re.test(result.description);
+
+    this.setState({
+      loading: false,
+      results: _.filter(this.props.products, isMatch),
+    });
+  }
+
+  onResultSelect = (e, data) => {
+    this.setState({ value: data.result.productName });
+    const re = new RegExp(_.escapeRegExp(data.result.productName), 'i');
+    const isMatch = (result) => re.test(result.productName);
+
+    this.setState({
+      loading: false,
+      results: _.filter(this.props.products, isMatch),
+    });
+  }
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   // Render the page once subscriptions have been received.
   renderPage() {
+    const { loading, results, value } = this.state;
     return (
-      <Container>
-        <Header as="h2" textAlign="center">List Products</Header>
-        <Card.Group>
-          {this.props.products.map((product, index) => <Product key={index} product={product} />)}
-        </Card.Group>
-      </Container>
+      <Grid container>
+        <Grid.Column centered>
+          <Search placeholder="Find your favorite items" id='searchbar'
+            loading={loading}
+            onResultSelect={this.onResultSelect}
+            onSearchChange={this.handleSearchChange}
+            resultRenderer={this.resultRenderer}
+            results={results}
+            value={value}
+          />
+          <Container id='results'>
+            <Card.Group centered>{results.map((product) => <Product key={product._id} product={product}/>)}</Card.Group>
+            <Card.Group>
+              {this.props.products.map((product, index) => <Product key={index} product={product} />)}
+            </Card.Group>
+          </Container>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
