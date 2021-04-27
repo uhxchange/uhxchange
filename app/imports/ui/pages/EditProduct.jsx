@@ -42,7 +42,6 @@ class EditProduct extends React.Component {
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='productName'/>
-              <TextField name='productType'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>

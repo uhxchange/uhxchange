@@ -10,7 +10,6 @@ import { Products } from '../../api/product/Products';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   productName: String,
-  productType: String,
   productImage: String,
   description: String,
 });
@@ -22,9 +21,9 @@ class AddProduct extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { productName, productType, productImage, description } = data;
+    const { productName, productImage, description } = data;
     const owner = Meteor.user().username;
-    Products.collection.insert({ productName, productType, productImage, description, owner },
+    Products.collection.insert({ productName, productImage, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,7 +44,6 @@ class AddProduct extends React.Component {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='productName'/>
-              <TextField name='productType'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
               <SubmitField value='Submit'/>
