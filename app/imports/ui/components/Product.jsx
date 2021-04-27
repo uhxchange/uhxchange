@@ -11,7 +11,9 @@ class Product extends React.Component {
     return (
       <Card centered>
         <Card.Content>
-          <Image src={this.props.product.productImage}/>
+          <Link to={`/product/${this.props.product._id}`}>
+            <Image src={this.props.product.productImage} />
+          </Link>
           <Card.Header>{this.props.product.productName}</Card.Header>
           <Card.Description>
             {this.props.product.description}
