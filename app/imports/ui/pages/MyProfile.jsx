@@ -18,19 +18,18 @@ class MyProfile extends React.Component {
 
   // Render the page once subscriptions have been received.
   renderPage() {
-    const currentId = Meteor.userId();
-    const username = Meteor.users.findOne({ _id: currentId }).username;
+    const username = Meteor.users.findOne({ _id: Meteor.userId() }).username;
 
-    const info1 = _.filter(this.props.contacts, function (infos) {
-      if (username === infos.owner) {
-        return infos;
+    const prof1 = _.filter(this.props.contacts, function (profs) {
+      if (username === profs.owner) {
+        return profs;
       }
       return 0;
     });
 
-    const pro1 = _.filter(this.props.products, function (pros) {
-      if (username === pros.owner) {
-        return pros;
+    const prod1 = _.filter(this.props.products, function (prods) {
+      if (username === prods.owner) {
+        return prods;
       }
       return 0;
     });
@@ -38,10 +37,10 @@ class MyProfile extends React.Component {
       <Grid id="my-profile-page" container centered>
         <Header as="h2" textAlign="center">My Profile</Header>
         <Container>
-          {info1.map((info) => <Profile key={info._id} info={info} Contacts={Contacts}/>)}
+          {prof1.map((prof) => <Profile key={prof._id} info={prof} Contacts={Contacts}/>)}
           <Header as="h2" textAlign="center">My Products</Header>
           <Card.Group>
-            {pro1.map((product, index) => <Product key={index} product={product} />)}
+            {prod1.map((product, index) => <Product key={index} product={product} />)}
           </Card.Group>
         </Container>
       </Grid>
