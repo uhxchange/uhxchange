@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Search, Grid, Container, Loader, Card, Header } from 'semantic-ui-react';
+import { Search, Grid, Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Product from '../components/Product';
