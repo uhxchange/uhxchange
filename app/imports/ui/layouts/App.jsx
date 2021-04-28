@@ -22,6 +22,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ProductPage from '../pages/ProductPage';
 import MyProfile from '../pages/MyProfile';
+import UserProfile from '../pages/UserProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -42,6 +43,7 @@ class App extends React.Component {
             <ProtectedRoute path="/listp" component={ListProducts}/>
             <ProtectedRoute path="/type" component={ProductTypes}/>
             <ProtectedRoute path="/profile" component={MyProfile}/>
+            <ProtectedRoute path="/uprofile" component={UserProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>
             <ProtectedRoute path="/editp/:_id" component={EditProduct}/>
             <ProtectedRoute path="/review" component={UserReview}/>
