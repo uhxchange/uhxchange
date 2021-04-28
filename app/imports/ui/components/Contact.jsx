@@ -14,9 +14,6 @@ class Contact extends React.Component {
         <Card.Content>
           <Card.Header>{this.props.contact.name}</Card.Header>
           <Card.Meta>{this.props.contact.email}</Card.Meta>
-          <Card.Description>
-            {this.props.contact.description}
-          </Card.Description>
         </Card.Content>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Card.Content extra>
