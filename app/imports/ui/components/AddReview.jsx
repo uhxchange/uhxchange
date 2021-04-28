@@ -29,7 +29,7 @@ class AddReview extends React.Component {
     let fRef = null;
     const userName = Meteor.user().username;
     return (
-      <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+      <AutoForm id='reviewpage' ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
         <Segment>
           <LongTextField label="Add a review!" name='userReview'/>
           <SubmitField value='Submit'/>
