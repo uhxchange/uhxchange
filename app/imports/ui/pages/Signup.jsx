@@ -13,7 +13,7 @@ class Signup extends React.Component {
   /* Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', name: '', address: '', image: '', phoneNumber: '', error: '', redirectToReferer: false };
+    this.state = { email: '', password: '', name: '', image: '', phoneNumber: '', error: '', redirectToReferer: false };
   }
 
   /* Update the form controls each time the user interacts with them. */
@@ -23,15 +23,15 @@ class Signup extends React.Component {
 
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password, name, address, image, phoneNumber } = this.state;
-    Accounts.createUser({ email, username: email, password, profile: { name, address, image, phoneNumber, owner: email } }, (err) => {
+    const { email, password, name, image, phoneNumber } = this.state;
+    Accounts.createUser({ email, username: email, password, profile: { name, image, phoneNumber, owner: email } }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
         this.setState({ error: '', redirectToReferer: true });
       }
     });
-    Contacts.collection.insert({ email, name, address, image, owner: email },
+    Contacts.collection.insert({ email, name, image, owner: email },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -68,23 +68,13 @@ class Signup extends React.Component {
                   onChange={this.handleChange}
                 />
                 <Form.Input
-                  label="Address"
-                  id="signup-form-address"
-                  icon="home"
-                  iconPosition="left"
-                  name="address"
-                  type="address"
-                  placeholder="address"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Image"
+                  label="Profile Image"
                   id="signup-form-image"
                   icon="image"
                   iconPosition="left"
                   name="image"
                   type="link"
-                  placeholder="Image"
+                  placeholder="Profile Image"
                   onChange={this.handleChange}
                 />
                 <Form.Input

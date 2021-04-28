@@ -15,7 +15,6 @@ class ContactsCollection {
     this.schema = new SimpleSchema({
       email: String,
       name: String,
-      address: String,
       image: String,
       owner: String,
     }, { tracker: Tracker });
