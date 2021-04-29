@@ -19,12 +19,6 @@ class Product extends React.Component {
             {this.props.product.description}
           </Card.Description>
         </Card.Content>
-        <Card.Content>
-          <a>
-            <Icon name='user' />
-            {this.props.product.owner}
-          </a>
-        </Card.Content>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Card.Content extra>
             <Link to={`/editp/${this.props.product._id}`}>Edit</Link>

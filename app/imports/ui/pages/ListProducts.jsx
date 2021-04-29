@@ -21,7 +21,7 @@ class ListProducts extends React.Component {
     this.state = { results: [], value: '' };
   }
 
-  resultRenderer = ({ productName, productImage, description, owner }) => <ProductResult productName={productName} productImage={productImage} description={description} owner={owner}/>
+  resultRenderer = ({ productName, productImage, description }) => <ProductResult productName={productName} productImage={productImage} description={description}/>
 
   handleSearchChange = (e, data) => {
     this.setState({ loading: true, value: data.value });
