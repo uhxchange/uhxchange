@@ -56,15 +56,16 @@ UserProfile.propTypes = {
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-export default withTracker(() => {
+export default withTracker(({ match }) => {
   // Get access to Vendor documents.
 
+  const documentId = match.params._id;
   const subscription = Meteor.subscribe(Contacts.userPublicationName);
   const subscription2 = Meteor.subscribe(Products.userPublicationName);
   const ready = subscription.ready();
   const ready2 = subscription2.ready();
   // Get the Vendor documents
-  const contacts = Contacts.collection.find({ }).fetch();
+  const contacts = Contacts.collection.findOne(documentId);
   const products = Products.collection.find({ }).fetch();
   return {
     contacts,
