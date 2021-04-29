@@ -10,7 +10,7 @@ class Contact extends React.Component {
   render() {
     return (
       <Card>
-        <Link to={`/uprofile/${this.props.contact._id}`}><Image src={this.props.contact.image} /></Link>
+        <Image src={this.props.contact.image} />
         <Card.Content>
           <Card.Header>{this.props.contact.name}</Card.Header>
           <Card.Meta>{this.props.contact.email}</Card.Meta>
