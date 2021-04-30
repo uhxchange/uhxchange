@@ -10,13 +10,10 @@ class Contact extends React.Component {
   render() {
     return (
       <Card>
-        <Image src={this.props.contact.image} wrapped ui={false}/>
+        <Image src={this.props.contact.image} />
         <Card.Content>
           <Card.Header>{this.props.contact.name}</Card.Header>
           <Card.Meta>{this.props.contact.email}</Card.Meta>
-          <Card.Description>
-            {this.props.contact.description}
-          </Card.Description>
         </Card.Content>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Card.Content extra>
