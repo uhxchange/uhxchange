@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid, List, Header } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { Grid, List } from 'semantic-ui-react';
 
 export default class BottomMenu extends React.Component {
   render() {
@@ -18,7 +17,7 @@ export default class BottomMenu extends React.Component {
           </Grid.Column>
           <Grid.Column>
             <List size={'large'} inverted>
-              <List.Item id='footer-title'>SHOP & SELL</List.Item>
+              <List.Item id='footer-title'>MARKETPLACE</List.Item>
               <hr/>
               <List.Item><a href={'/#/shop'}>Shop</a></List.Item>
               <List.Item><a href={'/#/sell'}>Sell</a></List.Item>
