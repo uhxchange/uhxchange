@@ -9,6 +9,7 @@ class Landing extends React.Component {
       <div>
         <Container className='landing-top'>
           <Header as='h3' id='text1' align='center' inverted>
+              Welcome to UHXchange!
           </Header>
           <Header as='h3' id='text2' align='center' inverted>
               The UHXchange is a web application for UHM students to facilitate buying and selling of student-related goods and services. All you have to do is sign up if you do not have an account with us or log in
