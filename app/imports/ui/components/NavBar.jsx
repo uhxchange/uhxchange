@@ -3,25 +3,28 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
+import { Menu, Dropdown, Image } from 'semantic-ui-react';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
     const menuStyle = { marginBottom: '10px' };
     return (
-      <Menu style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/listsignedin">
-          <Header inverted as='h1'>UHXchange</Header>
+      <Menu style={menuStyle} attached="top" borderless id='topmenu'>
+        <Menu.Item as={NavLink} activeClassName="" exact to="/home">
+          <Image src="https://file.miricanvas.com/design_thumb/2021/05/02/09/30/fc69092420e24b/thumb.jpg"/>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Contacts</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/addp" key='addp'>Add Product</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/listp" key='listp'>List Products</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/review" key='review'>Reviews!</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='review'>Profile</Menu.Item>]
+          [
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/shop" key='shop'>SHOP</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/sell" key='sell'>SELL</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>COMMUNITY</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/review" key='review'>REVIEWS!</Menu.Item>]
         ) : ''}
         <Menu.Item position="right">
+          {this.props.currentUser ? (
+            [<Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/profile" key='review'>MY PROFILE</Menu.Item>]
+          ) : ''}
           {this.props.currentUser === '' ? (
             <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>
               <Dropdown.Menu>

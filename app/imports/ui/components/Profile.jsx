@@ -15,7 +15,6 @@ class Profile extends React.Component {
         <Item.Group>
           <Item>
             <Item.Image size='medium' src={this.props.info.image} />
-
             <Item.Content>
               <Item.Header textAlign={'left'}>{this.props.info.name}</Item.Header>
               <Item.Meta>
@@ -28,7 +27,6 @@ class Profile extends React.Component {
             <Link to={`/edit/${this.props.info._id}`}>Edit</Link>
           </Item>
         </Item.Group>
-
       </Grid>
     );
   }

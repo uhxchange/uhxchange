@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Container, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Contact from '../components/Contact';
@@ -18,8 +18,7 @@ class ListContacts extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Contacts</Header>
-        <Card.Group>
+        <Card.Group centered>
           {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
         </Card.Group>
       </Container>

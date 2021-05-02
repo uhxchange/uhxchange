@@ -60,7 +60,7 @@ class ListProducts extends React.Component {
     return (
       <Grid container>
         <Grid.Column centered>
-          <Search placeholder="Find your favorite items" id='searchbar'
+          <Search placeholder="Search" id='searchbar'
             loading={loading}
             onResultSelect={this.onResultSelect}
             onSearchChange={this.handleSearchChange}
