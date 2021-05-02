@@ -11,10 +11,10 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <Grid centered id='my-profile'>
+      <Grid>
         <Item.Group>
           <Item>
-            <Item.Image size='small' src={this.props.info.image} />
+            <Item.Image size='medium' src={this.props.info.image} />
             <Item.Content>
               <Item.Header textAlign={'left'}>{this.props.info.name}</Item.Header>
               <Item.Meta>

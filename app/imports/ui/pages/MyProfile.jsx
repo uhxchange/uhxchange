@@ -65,7 +65,7 @@ export default withTracker(() => {
   const ready2 = subscription2.ready();
   // Get the Vendor documents
   const contacts = Contacts.collection.find({}).fetch();
-  const products = Products.collection.find({ }).fetch();
+  const products = Products.collection.find({}).fetch();
   return {
     contacts,
     products,
