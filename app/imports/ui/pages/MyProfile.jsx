@@ -7,7 +7,7 @@ import { _ } from 'meteor/underscore';
 import { Contacts } from '../../api/contact/Contacts';
 import Profile from '../components/Profile';
 import { Products } from '../../api/product/Products';
-import Product from '../components/Product';
+import MyProduct from '../components/MyProduct';
 
 /** Renders a table containing all of the vendor documents. Use <MyVendorData> to render each row. */
 class MyProfile extends React.Component {
@@ -40,7 +40,7 @@ class MyProfile extends React.Component {
           {prof1.map((prof) => <Profile key={prof._id} info={prof} Contacts={Contacts}/>)}
           <Header as="h2" textAlign="center">My Products</Header>
           <Card.Group>
-            {prod1.map((product, index) => <Product key={index} product={product} />)}
+            {prod1.map((product, index) => <MyProduct key={index} product={product} />)}
           </Card.Group>
         </Container>
       </Grid>

@@ -6,12 +6,13 @@ import { Link, withRouter } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Product extends React.Component {
+class MyProduct extends React.Component {
   removeProduct(ProductID) {
     this.props.product.collection.remove(ProductID);
   }
 
   render() {
+    const username = Meteor.users.findOne({ _id: Meteor.userId() }).username;
     return (
       <Card centered>
         <Card.Content>
@@ -26,24 +27,28 @@ class Product extends React.Component {
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Card.Content extra>
             <Link to={`/editp/${this.props.product._id}`}>Edit</Link>
-          </Card.Content>
-        ) : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Card.Content extra>
             <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
               <Icon name='trash'/>
             </Button>
           </Card.Content>
         ) : ''}
+        <Card.Content extra>
+          {this.props.product.owner === username ? <Link to={`/editp/${this.props.product._id}`}>Edit </Link> : <Link to={`/product/${this.props.product._id}`}>Go to Product Page</Link>}
+        </Card.Content>
+        <Card.Content extra>
+          {this.props.product.owner === username ? <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
+            <Icon name='trash'/>
+          </Button> : null }
+        </Card.Content>
       </Card>
     );
   }
 }
 
 // Require a document to be passed to this component.
-Product.propTypes = {
+MyProduct.propTypes = {
   product: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(Product);
+export default withRouter(MyProduct);
