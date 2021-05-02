@@ -36,10 +36,10 @@ class App extends React.Component {
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListContacts}/>
-            <ProtectedRoute path="/listsignedin" component={LandingSignedIn}/>
-            <ProtectedRoute path="/addp" component={AddProduct}/>
+            <ProtectedRoute path="/home" component={LandingSignedIn}/>
+            <ProtectedRoute path="/sell" component={AddProduct}/>
             <ProtectedRoute path="/product/:_id" component={ProductPage}/>
-            <ProtectedRoute path="/listp" component={ListProducts}/>
+            <ProtectedRoute path="/shop" component={ListProducts}/>
             <ProtectedRoute path="/profile" component={MyProfile}/>
             <ProtectedRoute path="/uprofile" component={UserProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditContact}/>

@@ -16,9 +16,6 @@ class UserReview extends React.Component {
     return (
       <Grid container>
         <Grid.Row>
-          <Header as='h1' textAlign='center'>Review Page</Header>
-        </Grid.Row>
-        <Grid.Row>
           <AddReview/>
         </Grid.Row>
         <Grid.Row>

@@ -3,12 +3,31 @@ html, body {
 }
 
 .landing-background {
-  background: mediumseagreen url("https://www.khon2.com/wp-content/uploads/sites/8/2020/10/10-11-uh.jpg?w=1280");
   background-size: cover;
 }
 
-.landing-background-page {
-  padding: 10% 10% 10% 10%;
+.landing-top {
+  background: url("https://sa-media.s3.amazonaws.com/sa-nativead-images/uhmanoa/6-5-20/UHManoa-native-1.jpg") center no-repeat;
+  background-size: cover;
+  height: 500px;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.landing-middle {
+  padding-top: 5%;
+}
+
+#topmenu {
+  border: none;
+  box-shadow: none;
+}
+
+#footer {
+  background-color: #708c4a;
+  margin-top: 5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #results {
@@ -23,4 +42,23 @@ html, body {
 
 #reviewpage {
   width: 2000px;
+}
+
+#text1 {
+  padding-top: 2%;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-family: "Arial Black";
+  font-size: 40px;
+}
+
+#text2 {
+  padding-left: 20%;
+  padding-right: 20%;
+  font-family: AppleMyungjo;
+  font-size: 20px;
+}
+
+#footer-title {
+  color: white;
 }
