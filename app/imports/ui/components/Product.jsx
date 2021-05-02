@@ -8,6 +8,7 @@ import { Roles } from 'meteor/alanning:roles';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Product extends React.Component {
   render() {
+    const username = Meteor.users.findOne({ _id: Meteor.userId() }).username;
     return (
       <Card centered>
         <Card.Content>
@@ -29,6 +30,9 @@ class Product extends React.Component {
           <Card.Content extra>
             <Link to={`/editp/${this.props.product._id}`}>Edit</Link>
           </Card.Content>) : ''}
+        <Card.Content extra>
+          {this.props.product.owner === username ? <Link to={`/editp/${this.props.product._id}`}>Edit</Link> : <Link to={`/product/${this.props.product._id}`}>Go to Product Page</Link>}
+        </Card.Content>
       </Card>
     );
   }
