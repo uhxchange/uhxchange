@@ -26,6 +26,10 @@ class Product extends React.Component {
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Card.Content extra>
             <Link to={`/editp/${this.props.product._id}`}>Edit</Link>
+          </Card.Content>
+        ) : ''}
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          <Card.Content extra>
             <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
               <Icon name='trash'/>
             </Button>
