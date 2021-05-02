@@ -15,14 +15,6 @@ class UserProfile extends React.Component {
   }
 
   renderPage() {
-    const username = _.pluck(Contacts.collection.find({ _id: this.props.doc._id }).fetch(), 'owner');
-    const prod1 = _.filter(this.props.products, function (prods) {
-      if (username === prods.owner) {
-        return prods;
-      }
-      return 0;
-    });
-
     return (
       <Container>
         <Header as="h2">User Profile</Header>
@@ -35,7 +27,7 @@ class UserProfile extends React.Component {
               <Item.Meta>
                 <span className='email'>{this.props.doc.email}</span>
               </Item.Meta>
-              <Item.Description>User email: {this.props.doc.owner} {Meteor.userId()} {this.props.doc._id}</Item.Description>
+              <Item.Description>User email: {this.props.doc.owner}</Item.Description>
             </Item.Content>
           </Item>
         </Item.Group>
@@ -62,7 +54,8 @@ export default withTracker(({ match }) => {
   const doc = Contacts.collection.findOne(documentId);
   const subscription2 = Meteor.subscribe(Products.userPublicationName);
   const ready2 = subscription2.ready();
-  const products = Products.collection.find({ }).fetch();
+  const username = _.first(_.pluck(Contacts.collection.find(documentId).fetch(), 'owner'));
+  const products = Products.collection.find({ owner: username }).fetch();
   return {
     doc,
     products,
