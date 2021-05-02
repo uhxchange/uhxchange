@@ -62,3 +62,8 @@ html, body {
 #footer-title {
   color: white;
 }
+
+#my-profile {
+  padding-top: 5%;
+  padding-bottom: 10%;
+}

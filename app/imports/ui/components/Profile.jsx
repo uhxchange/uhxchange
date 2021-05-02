@@ -11,26 +11,23 @@ class Profile extends React.Component {
 
   render() {
     return (
-        <Grid>
-          <Item.Group>
-            <Item>
-              <Item.Image size='tiny' src={this.props.info.image} />
-
-              <Item.Content>
-                <Item.Header textAlign={'left'}>{this.props.info.name}</Item.Header>
-                <Item.Meta>
-                  <span className='email'>{this.props.info.email}</span>
-                </Item.Meta>
-                <Item.Description>User email: {this.props.info.owner}</Item.Description>
-              </Item.Content>
-            </Item>
+      <Grid centered id='my-profile'>
+        <Item.Group>
+          <Item>
+            <Item.Image size='small' src={this.props.info.image} />
+            <Item.Content>
+              <Item.Header textAlign={'left'}>{this.props.info.name}</Item.Header>
+              <Item.Meta>
+                <span className='email'>{this.props.info.email}</span>
+              </Item.Meta>
+              <Item.Description>User email: {this.props.info.owner}</Item.Description>
+            </Item.Content>
+          </Item>
           <Item>
             <Link to={`/edit/${this.props.info._id}`}>Edit</Link>
           </Item>
-          </Item.Group>
-
-
-        </Grid>
+        </Item.Group>
+      </Grid>
     );
   }
 }
