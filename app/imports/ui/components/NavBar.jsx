@@ -23,7 +23,7 @@ class NavBar extends React.Component {
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser ? (
-            [<Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/profile" key='review'>MY PROFILE</Menu.Item>]
+            [<Menu.Item id="my-profile" position="right" as={NavLink} activeClassName="active" exact to="/profile" key='review'>MY PROFILE</Menu.Item>]
           ) : ''}
           {this.props.currentUser === '' ? (
             <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>

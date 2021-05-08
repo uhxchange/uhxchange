@@ -7,7 +7,7 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
-        <Container className='landing-top'>
+        <Container id='landing-top'>
           <Header as='h3' id='text1' align='center' inverted>
               Welcome to UHXchange!
           </Header>

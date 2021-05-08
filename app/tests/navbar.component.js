@@ -7,7 +7,7 @@ class NavBar {
     const loggedInUser = await Selector('#navbar-current-user').exists;
     if (loggedInUser) {
       await testController.click('#navbar-current-user');
-      await testController.click('#navbar-sign-out');
+      // await testController.click('#navbar-sign-out');
     }
   }
 
@@ -35,6 +35,11 @@ class NavBar {
     await this.ensureLogout(testController);
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
+  }
+
+  async gotoMyProfile(testController) {
+    await this.ensureLogout(testController);
+    await testController.click('#my-profile');
   }
 }
 
