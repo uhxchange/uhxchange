@@ -13,7 +13,7 @@ const formSchema = new SimpleSchema({
   productName: String,
   productImage: String,
   description: String,
-  saleType: { label: 'Trade or Sell', type: String, allowedValues: ['Selling', 'Trading'] },
+  saleType: { type: String, allowedValues: ['Selling', 'Trading'] },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -47,7 +47,7 @@ class AddProduct extends React.Component {
               <TextField name='productName'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
-              <RadioField name='saleType'/>
+              <RadioField name='saleType' inline showInlineError={true}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
