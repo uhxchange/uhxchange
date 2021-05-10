@@ -22,31 +22,32 @@
 
   "defaultProducts": [
     {
-      "productName": "Used Small Desk", "productImage": "https://www.noeltd.co.uk/images/ww/product/IMG_2329.gif", "owner": "chunjy@hawaii.edu" , "description": "Used dormitory furniture. Good Condition."
+      "productName": "Used Small Desk", "productImage": "https://www.noeltd.co.uk/images/ww/product/IMG_2329.gif", "owner": "chunjy@hawaii.edu" , "description": "Used dormitory furniture. Good Condition.",
+      "saleType": "Selling"
     },
     {
-      "productName": "Fan", "productImage": "https://images-na.ssl-images-amazon.com/images/I/31IIC2IyqIL.jpg", "owner": "hansenca@hawaii.edu" , "description": "Used - Like New. Honeywell Quiet Set Whole Room Tower Fan."
+      "productName": "Fan", "productImage": "https://images-na.ssl-images-amazon.com/images/I/31IIC2IyqIL.jpg", "owner": "hansenca@hawaii.edu" , "description": "Used - Like New. Honeywell Quiet Set Whole Room Tower Fan.", "saleType": "Trading"
     },
     {
-      "productName": "Hydro Flask Water Bottle", "productImage": "https://images-na.ssl-images-amazon.com/images/I/31IaaIqBA0L.jpg", "owner": "chinting@hawaii.edu" , "description": "New Hydro Flask water bottle with a wide mouth straw lid. Size: 40oz."
+      "productName": "Hydro Flask Water Bottle", "productImage": "https://images-na.ssl-images-amazon.com/images/I/31IaaIqBA0L.jpg", "owner": "chinting@hawaii.edu" , "description": "New Hydro Flask water bottle with a wide mouth straw lid. Size: 40oz.", "saleType": "Selling"
     },
     {
-      "productName": "Chemistry 9th Edition", "productImage": "https://images-na.ssl-images-amazon.com/images/I/51rdkxPezYL._SX403_BO1,204,203,200_.jpg", "owner": "tam9@hawaii.edu" , "description": "Very Good - standard used condition book with the text inside being clean and unmarked"
+      "productName": "Chemistry 9th Edition", "productImage": "https://images-na.ssl-images-amazon.com/images/I/51rdkxPezYL._SX403_BO1,204,203,200_.jpg", "owner": "tam9@hawaii.edu" , "description": "Very Good - standard used condition book with the text inside being clean and unmarked", "saleType": "Trading"
     },
     {
-      "productName": "Wooden Bed", "productImage": "https://i.ebayimg.com/images/g/AXoAAOSwM5tb~sxK/s-l1600.jpg", "owner": "chunjy@hawaii.edu" , "description": "Used dormitory furniture. Measurements: 80Lx36W"
+      "productName": "Wooden Bed", "productImage": "https://i.ebayimg.com/images/g/AXoAAOSwM5tb~sxK/s-l1600.jpg", "owner": "chunjy@hawaii.edu" , "description": "Used dormitory furniture. Measurements: 80Lx36W", "saleType": "Selling"
     },
     {
-      "productName": "Used Printer", "productImage": "https://5.imimg.com/data5/GB/IL/MY-40717545/second-hand-printer-500x500.jpg", "owner": "hansenca@hawaii.edu" , "description": "Easy to install. Has a usb cable, a stack of computer paper, and extra black ink cartridge."
+      "productName": "Used Printer", "productImage": "https://5.imimg.com/data5/GB/IL/MY-40717545/second-hand-printer-500x500.jpg", "owner": "hansenca@hawaii.edu" , "description": "Easy to install. Has a usb cable, a stack of computer paper, and extra black ink cartridge.", "saleType": "Trading"
     },
     {
-      "productName": "Physics Textbook", "productImage": "https://images-na.ssl-images-amazon.com/images/I/41IJFOKX9fL._SX403_BO1,204,203,200_.jpg", "owner": "chinting@hawaii.edu" , "description": "Physics for Scientists and Engineers: A Strategic Approach with Modern Physics 4th Edition. May have highlighting, cover wear, creasing, staining, water wrinkling, etc."
+      "productName": "Physics Textbook", "productImage": "https://images-na.ssl-images-amazon.com/images/I/41IJFOKX9fL._SX403_BO1,204,203,200_.jpg", "owner": "chinting@hawaii.edu" , "description": "Physics for Scientists and Engineers: A Strategic Approach with Modern Physics 4th Edition. May have highlighting, cover wear, creasing, staining, water wrinkling, etc.", "saleType": "Selling"
     },
     {
-      "productName": "Water Heater 1.7L", "productImage": "https://m.media-amazon.com/images/I/71W29Bqp+cL._AC_UL640_FMwebp_QL65_.jpg", "owner": "tam9@hawaii.edu" , "description": "Hamilton Beach Electric Tea Kettle, Water Boiler & Heater, 1.7 L, Cordless, Auto-Shutoff and Boil-Dry Protection, Stainless Steel."
+      "productName": "Water Heater 1.7L", "productImage": "https://m.media-amazon.com/images/I/71W29Bqp+cL._AC_UL640_FMwebp_QL65_.jpg", "owner": "tam9@hawaii.edu" , "description": "Hamilton Beach Electric Tea Kettle, Water Boiler & Heater, 1.7 L, Cordless, Auto-Shutoff and Boil-Dry Protection, Stainless Steel.", "saleType": "Trading"
     },
     {
-      "productName": "LED Desk Lamp", "productImage": "https://images-na.ssl-images-amazon.com/images/I/51z1xamiV%2BL._AC_SL1500_.jpg", "owner": "tam9@hawaii.edu" , "description": "TaoTronics LED Desk Lamp with USB Charging Port. Good Condition."
+      "productName": "LED Desk Lamp", "productImage": "https://images-na.ssl-images-amazon.com/images/I/51z1xamiV%2BL._AC_SL1500_.jpg", "owner": "tam9@hawaii.edu" , "description": "TaoTronics LED Desk Lamp with USB Charging Port. Good Condition.", "saleType": "Selling"
     }
   ],
     

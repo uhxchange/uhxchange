@@ -1,17 +1,19 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Products } from '../../api/product/Products';
+import RadioField from '../forms/controllers/RadioField';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   productName: String,
   productImage: String,
   description: String,
+  saleType: { type: String, allowedValues: ['Selling', 'Trading'] },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -21,9 +23,9 @@ class AddProduct extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { productName, productImage, description } = data;
+    const { productName, productImage, description, saleType } = data;
     const owner = Meteor.user().username;
-    Products.collection.insert({ productName, productImage, description, owner },
+    Products.collection.insert({ productName, productImage, description, saleType, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,6 +47,7 @@ class AddProduct extends React.Component {
               <TextField name='productName'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
+              <RadioField name='saleType' inline showInlineError={true}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
