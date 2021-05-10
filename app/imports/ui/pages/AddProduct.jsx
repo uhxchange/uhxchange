@@ -13,7 +13,7 @@ const formSchema = new SimpleSchema({
   productName: String,
   productImage: String,
   description: String,
-  saleType: { type: String, allowedValues: ['Selling', 'Trading'] },
+  saleType: { type: String, allowedValues: ['Selling', 'Trading', 'Both'] },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);

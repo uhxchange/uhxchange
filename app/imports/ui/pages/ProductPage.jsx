@@ -29,9 +29,14 @@ class ProductPage extends React.Component {
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <Label as='a' tag>
-                {this.props.doc.saleType}
-              </Label>
+              {this.props.doc.saleType === 'Both' ?
+                <Label as='a' tag>
+                    Selling and Trading
+                </Label> :
+                <Label as='a' tag>
+                  {this.props.doc.saleType}
+                </Label>
+              }
             </Card.Content>
           </Card>
         </Card.Group>
