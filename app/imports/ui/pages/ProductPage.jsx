@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
-import { Card, Container, Header, Image, Label, Loader } from 'semantic-ui-react';
+import { Card, Container, Header, Image, Loader } from 'semantic-ui-react';
 import { Contacts } from '../../api/contact/Contacts';
 import Contact from '../components/Contact';
 import { Products } from '../../api/product/Products';
@@ -28,15 +28,7 @@ class ProductPage extends React.Component {
                 {this.props.doc.description}
               </Card.Description>
             </Card.Content>
-            <Card.Content extra>
-              {this.props.doc.saleType === 'Both' ?
-                <Label as='a' tag>
-                    Selling and Trading
-                </Label> :
-                <Label as='a' tag>
-                  {this.props.doc.saleType}
-                </Label>
-              }
+            <Card.Content>
             </Card.Content>
           </Card>
         </Card.Group>

@@ -11,7 +11,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <Grid id='my-profile' verticalAlign='middle' textAlign='center' container>
+      <Grid>
         <Item.Group>
           <Item>
             <Item.Image size='medium' src={this.props.info.image} />
