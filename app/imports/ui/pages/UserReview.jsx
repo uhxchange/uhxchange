@@ -14,7 +14,7 @@ class UserReview extends React.Component {
 
   renderPage() {
     return (
-      <Grid container>
+      <Grid id='navbar-review-page' container>
         <Grid.Row>
           <AddReview/>
         </Grid.Row>

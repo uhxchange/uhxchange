@@ -58,7 +58,7 @@ class ListProducts extends React.Component {
   renderPage() {
     const { loading, results, value } = this.state;
     return (
-      <Grid container>
+      <Grid container id='shop-page'>
         <Grid.Column centered>
           <Search placeholder="Search" id='searchbar'
             loading={loading}
