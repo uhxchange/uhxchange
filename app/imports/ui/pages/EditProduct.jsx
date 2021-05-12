@@ -14,6 +14,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Products } from '../../api/product/Products';
+import RadioField from '../forms/controllers/RadioField';
 
 const bridge = new SimpleSchema2Bridge(Products.schema);
 
@@ -22,8 +23,8 @@ class EditProduct extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { productName, productType, productImage, description, _id } = data;
-    Products.collection.update(_id, { $set: { productName, productType, productImage, description } }, (error) => (error ?
+    const { productName, productType, productImage, description, saleType, _id } = data;
+    Products.collection.update(_id, { $set: { productName, productType, productImage, description, saleType } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -44,6 +45,7 @@ class EditProduct extends React.Component {
               <TextField name='productName'/>
               <TextField name='productImage'/>
               <LongTextField name='description'/>
+              <RadioField name='saleType' inline showInlineError={true}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
               <HiddenField name='owner' />
