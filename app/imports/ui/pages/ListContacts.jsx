@@ -18,7 +18,7 @@ class ListContacts extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Card.Group id='community-page' centered>
+        <Card.Group centered>
           {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} />)}
         </Card.Group>
       </Container>

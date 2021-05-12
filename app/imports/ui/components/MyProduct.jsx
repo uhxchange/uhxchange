@@ -12,7 +12,7 @@ class MyProduct extends React.Component {
   }
 
   render() {
-    const userName = Meteor.user().username;
+    const username = Meteor.users.findOne({ _id: Meteor.userId() }).username;
     return (
       <Card centered>
         <Card.Content>
@@ -25,10 +25,10 @@ class MyProduct extends React.Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          {this.props.product.owner === userName ? <Link to={`/editp/${this.props.product._id}`}>Edit </Link> : <Link to={`/product/${this.props.product._id}`}>Go to Product Page</Link>}
+          {this.props.product.owner === username ? <Link to={`/editp/${this.props.product._id}`}>Edit </Link> : <Link to={`/product/${this.props.product._id}`}>Go to Product Page</Link>}
         </Card.Content>
         <Card.Content extra>
-          {this.props.product.owner === userName ? <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
+          {this.props.product.owner === username ? <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
             <Icon name='trash'/>
           </Button> : null }
         </Card.Content>

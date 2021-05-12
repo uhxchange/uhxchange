@@ -40,14 +40,15 @@ class AddProduct extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid id='sell-page' container centered>
+      <Grid container centered>
         <Grid.Column>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField id='sell-item-name' name='productName'/>
-              <TextField id='sell-item-image' name='productImage'/>
-              <LongTextField id='sell-item-description' name='description'/>
-              <SubmitField id='sell-item-submit' value='Submit'/>
+              <TextField name='productName'/>
+              <TextField name='productImage'/>
+              <LongTextField name='description'/>
+              <RadioField name='saleType' inline showInlineError={true}/>
+              <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

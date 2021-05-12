@@ -16,14 +16,14 @@ class NavBar extends React.Component {
         </Menu.Item>
         {this.props.currentUser ? (
           [
-            <Menu.Item id='navbar-shop-page' as={NavLink} activeClassName="active" exact to="/shop" key='shop'>SHOP</Menu.Item>,
-            <Menu.Item id='navbar-sell-page' as={NavLink} activeClassName="active" exact to="/sell" key='sell'>SELL</Menu.Item>,
-            <Menu.Item id='navbar-community-page' as={NavLink} activeClassName="active" exact to="/list" key='list'>COMMUNITY</Menu.Item>,
-            <Menu.Item id='navbar-review-page' as={NavLink} activeClassName="active" exact to="/review" key='review'>REVIEWS!</Menu.Item>]
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/shop" key='shop'>SHOP</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/sell" key='sell'>SELL</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>COMMUNITY</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/review" key='review'>REVIEWS!</Menu.Item>]
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser ? (
-            [<Menu.Item id='navbar-profile-page' position="right" as={NavLink} activeClassName="active" exact to="/profile" key='review'>MY PROFILE</Menu.Item>]
+            [<Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/profile" key='review'>MY PROFILE</Menu.Item>]
           ) : ''}
           {this.props.currentUser === '' ? (
             <Dropdown id="login-dropdown" text="Login" pointing="top right" icon={'user'}>

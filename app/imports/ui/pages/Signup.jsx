@@ -36,7 +36,7 @@ class Signup extends React.Component {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Accounts added successfully', 'success');
+          swal('Success', 'Item added successfully', 'success');
         }
       });
   }

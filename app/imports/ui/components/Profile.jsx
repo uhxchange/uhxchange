@@ -20,6 +20,7 @@ class Profile extends React.Component {
               <Item.Meta>
                 <span className='email'>{this.props.info.email}</span>
               </Item.Meta>
+              <Item.Description>User email: {this.props.info.owner}</Item.Description>
             </Item.Content>
           </Item>
           <Item>
