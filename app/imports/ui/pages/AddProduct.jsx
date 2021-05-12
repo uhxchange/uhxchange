@@ -47,6 +47,7 @@ class AddProduct extends React.Component {
               <TextField id='sell-item-name' name='productName'/>
               <TextField id='sell-item-image' name='productImage'/>
               <LongTextField id='sell-item-description' name='description'/>
+              <RadioField name='saleType' inline showInlineError={true}/>
               <SubmitField id='sell-item-submit' value='Submit'/>
               <ErrorsField/>
             </Segment>
