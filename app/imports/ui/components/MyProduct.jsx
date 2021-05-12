@@ -7,7 +7,6 @@ import { Link, withRouter } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class MyProduct extends React.Component {
   removeProduct(productID) {
-    console.log(`item to delete is: ${productID}`);
     this.props.Products.collection.remove(productID);
   }
 
