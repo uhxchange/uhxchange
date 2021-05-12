@@ -71,7 +71,7 @@ class ListProducts extends React.Component {
           <Container id='results'>
             <Card.Group centered>{results.map((product) => <Product key={product._id} product={product}/>)}</Card.Group>
             <Card.Group>
-              {this.props.products.map((product, index) => <Product key={index} product={product} />)}
+              {this.props.products.map((product, index) => <Product key={index} product={product} Products={Products}/>)}
             </Card.Group>
           </Container>
         </Grid.Column>

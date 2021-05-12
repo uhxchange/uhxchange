@@ -8,7 +8,7 @@ import { Roles } from 'meteor/alanning:roles';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Product extends React.Component {
   removeProduct(ProductID) {
-    this.props.product.collection.remove(ProductID);
+    this.props.Products.collection.remove(ProductID);
   }
 
   render() {
@@ -43,6 +43,7 @@ class Product extends React.Component {
 // Require a document to be passed to this component.
 Product.propTypes = {
   product: PropTypes.object.isRequired,
+  Products: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
