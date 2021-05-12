@@ -33,7 +33,7 @@ class UserProfile extends React.Component {
         </Item.Group>
         <Header as="h2" textAlign="center">User Products</Header>
         <Card.Group>
-          {this.props.products.map((product, index) => <Product key={index} product={product} />)}
+          {this.props.products.map((product, index) => <Product key={index} product={product} Products={Products}/>)}
         </Card.Group>
       </Container>
     );
