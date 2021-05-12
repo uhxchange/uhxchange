@@ -7,12 +7,12 @@ import { Roles } from 'meteor/alanning:roles';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class MyProduct extends React.Component {
-  removeProduct(ProductID) {
-    this.props.product.collection.remove(ProductID);
+  removeProduct(productID) {
+    this.props.product.collection.deleteOne({ productID });
   }
 
   render() {
-    const username = Meteor.users.findOne({ _id: Meteor.userId() }).username;
+    const userName = Meteor.user().username;
     return (
       <Card centered>
         <Card.Content>
@@ -33,10 +33,10 @@ class MyProduct extends React.Component {
           </Card.Content>
         ) : ''}
         <Card.Content extra>
-          {this.props.product.owner === username ? <Link to={`/editp/${this.props.product._id}`}>Edit </Link> : <Link to={`/product/${this.props.product._id}`}>Go to Product Page</Link>}
+          {this.props.product.owner === userName ? <Link to={`/editp/${this.props.product._id}`}>Edit </Link> : <Link to={`/product/${this.props.product._id}`}>Go to Product Page</Link>}
         </Card.Content>
         <Card.Content extra>
-          {this.props.product.owner === username ? <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
+          {this.props.product.owner === userName ? <Button icon onClick={() => this.removeProduct(this.props.product._id)}>
             <Icon name='trash'/>
           </Button> : null }
         </Card.Content>
